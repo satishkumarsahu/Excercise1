@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.empid = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
+            this.contact = new System.Windows.Forms.TextBox();
+            this.deg = new System.Windows.Forms.TextBox();
+            this.report = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,40 +45,40 @@
             this.button5 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // empid
             // 
-            this.textBox1.Location = new System.Drawing.Point(430, 87);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.empid.Location = new System.Drawing.Point(430, 87);
+            this.empid.Name = "empid";
+            this.empid.Size = new System.Drawing.Size(100, 20);
+            this.empid.TabIndex = 0;
             // 
-            // textBox2
+            // name
             // 
-            this.textBox2.Location = new System.Drawing.Point(430, 131);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.name.Location = new System.Drawing.Point(430, 131);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(100, 20);
+            this.name.TabIndex = 1;
             // 
-            // textBox3
+            // contact
             // 
-            this.textBox3.Location = new System.Drawing.Point(430, 182);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.contact.Location = new System.Drawing.Point(430, 182);
+            this.contact.Name = "contact";
+            this.contact.Size = new System.Drawing.Size(100, 20);
+            this.contact.TabIndex = 2;
             // 
-            // textBox4
+            // deg
             // 
-            this.textBox4.Location = new System.Drawing.Point(430, 225);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 3;
+            this.deg.Location = new System.Drawing.Point(430, 225);
+            this.deg.Name = "deg";
+            this.deg.Size = new System.Drawing.Size(100, 20);
+            this.deg.TabIndex = 3;
             // 
-            // textBox5
+            // report
             // 
-            this.textBox5.Location = new System.Drawing.Point(430, 266);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 4;
+            this.report.Location = new System.Drawing.Point(430, 266);
+            this.report.Name = "report";
+            this.report.Size = new System.Drawing.Size(100, 20);
+            this.report.TabIndex = 4;
             // 
             // label1
             // 
@@ -133,6 +133,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -142,6 +143,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -151,6 +153,7 @@
             this.button3.TabIndex = 12;
             this.button3.Text = "Delete";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -160,6 +163,7 @@
             this.button4.TabIndex = 13;
             this.button4.Text = "Clear";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -169,6 +173,7 @@
             this.button5.TabIndex = 14;
             this.button5.Text = "Exit";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Employee
             // 
@@ -185,11 +190,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.report);
+            this.Controls.Add(this.deg);
+            this.Controls.Add(this.contact);
+            this.Controls.Add(this.name);
+            this.Controls.Add(this.empid);
             this.Name = "Employee";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -199,11 +204,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox empid;
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox contact;
+        private System.Windows.Forms.TextBox deg;
+        private System.Windows.Forms.TextBox report;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
