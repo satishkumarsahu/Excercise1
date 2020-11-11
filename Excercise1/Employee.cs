@@ -30,7 +30,7 @@ namespace Excercise1
             con.Open();
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = con;
-            cmd.CommandText = "insert into tbl_EmpDetails values("+empid.Text+",'"+name.Text+"',"+contact.Text+","+deg.Text+","+report.Text+")";
+            cmd.CommandText = "insert into tbl_EmpDetails values("+empid.Text+",'"+name.Text+"','"+contact.Text+"',"+deg.Text+","+report.Text+")";
             cmd.ExecuteNonQuery();
             MessageBox.Show("Inserted succecfully");
             con.Close();
