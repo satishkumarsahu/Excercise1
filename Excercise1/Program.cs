@@ -16,7 +16,7 @@ namespace Excercise1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DesignationDetails());
+            Application.Run(new DisplayProjectLeader());
         }
     }
 }

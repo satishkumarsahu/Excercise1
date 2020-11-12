@@ -13,9 +13,11 @@ namespace Excercise1
 {
     public partial class Employee : Form
     {
+        private OleDbConnection con = new OleDbConnection();
         public Employee()
         {
             InitializeComponent();
+            con.ConnectionString ="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/Satish/Documents/db_EMS.accdb";
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -25,15 +27,20 @@ namespace Excercise1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string cs = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/Satish/Documents/db_EMS.accdb";
-            OleDbConnection con = new OleDbConnection(cs);
-            con.Open();
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "insert into tbl_EmpDetails values("+empid.Text+",'"+name.Text+"','"+contact.Text+"',"+deg.Text+","+report.Text+")";
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Inserted succecfully");
-            con.Close();
+            try
+            {
+                con.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "insert into tbl_EmpDetails values(" + empid.Text + ",'" + name.Text + "','" + contact.Text + "'," + deg.Text + "," + report.Text + ")";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Inserted succecfully");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" +ex);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -47,28 +54,38 @@ namespace Excercise1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string cs = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/Satish/Documents/db_EMS.accdb";
-            OleDbConnection con = new OleDbConnection(cs);
-            con.Open();
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "Delete from tbl_EmpDetails where id=" +empid.Text;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Deleted succecfully");
-            con.Close();
+            try
+            {
+                con.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "Delete from tbl_EmpDetails where id=" + empid.Text;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Deleted succecfully");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" +ex);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string cs = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/Satish/Documents/db_EMS.accdb";
-            OleDbConnection con = new OleDbConnection(cs);
-            con.Open();
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "Update tbl_EmpDetails set Name='"+name.Text+"',ContactNumber="+contact.Text+",DesignationId="+deg.Text+",ReportinTo="+report.Text+" where id="+empid.Text;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Updated succecfully");
-            con.Close();
+            try
+            {
+                con.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "Update tbl_EmpDetails set Name='" + name.Text + "',ContactNumber=" + contact.Text + ",DesignationId=" + deg.Text + ",ReportinTo=" + report.Text + " where id=" + empid.Text;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Updated succecfully");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex);
+            }
         }
     }
 }

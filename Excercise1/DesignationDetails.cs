@@ -13,22 +13,29 @@ namespace Excercise1
 {
     public partial class DesignationDetails : Form
     {
+        private OleDbConnection con = new OleDbConnection();       
         public DesignationDetails()
         {
             InitializeComponent();
+            con.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/Satish/Documents/db_EMS.accdb";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string cs = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/Satish/Documents/db_EMS.accdb";
-            OleDbConnection con = new OleDbConnection(cs);
-            con.Open();
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "insert into tbl_Designation values("+id.Text+",'"+desig.Text+"')";
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Inserted succecfully");
-            con.Close();
+            try
+            {
+                con.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "insert into tbl_Designation values(" + id.Text + ",'" + desig.Text + "')";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Inserted succecfully");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error"+ex);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -51,28 +58,38 @@ namespace Excercise1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string cs = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/Satish/Documents/db_EMS.accdb";
-            OleDbConnection con = new OleDbConnection(cs);
-            con.Open();
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "Delete from tbl_Designation where id="+id.Text;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Deleted succecfully");
-            con.Close();
+            try
+            {
+                con.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "Delete from tbl_Designation where id=" + id.Text;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Deleted succecfully");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error"+ex);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string cs = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/Satish/Documents/db_EMS.accdb";
-            OleDbConnection con = new OleDbConnection(cs);
-            con.Open();
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "Update tbl_Designation set Designation='"+desig.Text+"'where id=" + id.Text;
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Updated succecfully");
-            con.Close();
+            try
+            {
+                con.Open();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "Update tbl_Designation set Designation='" + desig.Text + "'where id=" + id.Text;
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Updated succecfully");
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" +ex);
+            }
         }
     }
 }
