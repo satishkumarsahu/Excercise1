@@ -21,14 +21,14 @@ namespace Excercise1
             con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/Satish/Documents/db_EMS.accdb";
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void manager_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand();
                 cmd.Connection = con;
-                var query = "select * from tbl_EmpDetails where ReportingTo=(select Designation from tbl_EmpDetails where Name = '" + manager.Text.ToString() + "')";
+                var query = "select * from tbl_EmpDetails where ReportingTo=(select DesignationId from tbl_EmpDetails where Name = '" + manager.Text.ToString()+ "')";
                 cmd.CommandText =query;
                 OleDbDataAdapter da = new OleDbDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -59,7 +59,7 @@ namespace Excercise1
                 con.Open();
                 OleDbCommand cmd1 = new OleDbCommand();
                 cmd1.Connection = con;
-                cmd1.CommandText = "select Name from tbl_EmpDetails";
+                cmd1.CommandText = "select Name from tbl_EmpDetails where DesignationId=(select ID from tbl_Designation where Designation='MANAGER')";
                 OleDbDataReader reader = cmd1.ExecuteReader();
                 while (reader.Read())
                 {
@@ -71,23 +71,7 @@ namespace Excercise1
             {
                 MessageBox.Show("Error" + ex);
             }
-            try 
-            {
-                con.Open();
-                OleDbCommand cmd2 = new OleDbCommand();
-                cmd2.Connection = con;
-                string query = "select * from tbl_EmpDetails";
-                cmd2.CommandText = query;
-                OleDbDataAdapter da = new OleDbDataAdapter(cmd2);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dataGridView1.DataSource = dt;
-                con.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error" +ex);
-            }
+       
         }
     }
 }

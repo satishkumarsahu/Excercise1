@@ -50,6 +50,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SystemColorsChanged += new System.EventHandler(this.comboBox1_SystemColorsChanged);
             // 
             // dataGridView1
             // 
@@ -69,6 +70,7 @@
             this.Controls.Add(this.label1);
             this.Name = "DisplayEmp";
             this.Text = "DisplayEmp";
+            this.Load += new System.EventHandler(this.DisplayEmp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

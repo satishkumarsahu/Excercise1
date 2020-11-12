@@ -50,7 +50,7 @@
             this.manager.Name = "manager";
             this.manager.Size = new System.Drawing.Size(121, 21);
             this.manager.TabIndex = 4;
-            this.manager.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.manager.SelectedIndexChanged += new System.EventHandler(this.manager_SelectedIndexChanged);
             // 
             // label1
             // 
